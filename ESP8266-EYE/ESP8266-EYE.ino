@@ -41,7 +41,7 @@ const unsigned char eye_center [] = {
 };
 
 void setup()   {                
-  Serial.begin(9600);
+  Serial.begin(115200);
   pinMode(12, INPUT); // left
   pinMode(13, INPUT); // right
   pinMode(14, INPUT); // center
@@ -50,7 +50,7 @@ void setup()   {
   display.display();
   delay(2000);
   display.clearDisplay();
-
+  display.display();
 }
 
 

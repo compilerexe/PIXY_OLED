@@ -1,11 +1,7 @@
-
 #include <SPI.h>  
 #include <Pixy.h>
 
 Pixy pixy;
-
-#define X_CENTER        ((PIXY_MAX_X-PIXY_MIN_X)/2)       
-#define Y_CENTER        ((PIXY_MAX_Y-PIXY_MIN_Y)/2)
 
 int getX, Left, Right;
 int getY;
@@ -16,7 +12,7 @@ void setup()
   Serial.begin(115200);
   pinMode(9, OUTPUT);
   pinMode(10, OUTPUT); //left
-  pinMode(12, OUTPUT); //right
+  pinMode(8, OUTPUT); //right
   
   Serial.print("Starting...\n");
   pinMode(2,OUTPUT);
@@ -50,13 +46,13 @@ void loop()
 
     if (getX < 145) {
         digitalWrite(10, 0);
-        digitalWrite(12, 1);
+        digitalWrite(8, 1);
 
         digitalWrite(9, 0); // none center
         Serial.println("LEFT");
     } else {
         digitalWrite(10, 1);
-        digitalWrite(12, 0);
+        digitalWrite(8, 0);
 
         digitalWrite(9, 0); // none center
         Serial.println("RIGHT");
@@ -74,7 +70,7 @@ void loop()
        analogWrite(5,0);
        digitalWrite(9, 1);
        digitalWrite(10, 0);
-       digitalWrite(12, 0);
+       digitalWrite(8, 0);
        Serial.println("CENTER");
        
       }
